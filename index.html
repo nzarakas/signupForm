@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video loop muted playsinline autoplay poster="images/poster.png">
+        <source src="images/4306405-hd_1280_720_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <h1>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
+        </h1>
+        <h2>Sign up <strong>now</strong> to get started. You know you want to.</h2>
+        <form method="post">
+            <fieldset class="names">
+                <div>
+                    <label for="firstName">First Name </label>  
+                    <input id="firstName" type="text" name="firstName" required>  
+                </div>
+    
+                <div>
+                    <label for="lastName">Last Name </label>        
+                    <input id="lastName" type="text" name="lastName" required>  
+                </div>
+            </fieldset>
+            <fieldset class="contacts">
+                <div> 
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required>    
+                </div>
+               
+                <div>
+                    <label for="phoneNum">Phone Number </label>
+                    <input id="phoneNum" type="tel" name="phoneNum" required>   
+                </div>
+            </fieldset>
+            <fieldset class="password">
+                <div>
+                    <label for="password">Choose a Password </label>
+                    <input id="password" type="password" name="password" required>   
+                </div>
+    
+                <div>
+                    <label for="confirmPassword">Confirm Password </label>
+                    <input id="confirmPassword" type="password" name="confirmPassword" required>   
+                </div>
+            </fieldset>  
+            <button id="submit" type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>
