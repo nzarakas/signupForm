@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-up Form</title>
     <link rel="stylesheet" href="style.css">
-    <script></script>
+    <script src="sign.js" defer></script>
 </head>
 <body>
     <video loop muted playsinline autoplay poster="images/poster.png">
@@ -45,7 +45,9 @@
 
             <fieldset class="password">
                 <div>  
-                    <input id="password" type="password" name="password" placeholder="Choose a Password" autocomplete="off" required> 
+                    <input id="password" type="password" name="password" 
+                           placeholder="Choose a Password" autocomplete="off"
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
                     <label for="password">Choose a Password </label>  
                 </div>
                 
@@ -54,12 +56,19 @@
                     <label for="confirmPassword">Confirm Password </label>  
                 </div>
             </fieldset> 
+            
             <div class="buttonDiv">
                 <button id="submit" type="submit">Create Account</button>
             </div> 
             
         </form>
-        <div class="passwordValidation"></div>
+        <div id="passwordValidation">
+            <h5>Password must contain:</h5>
+            <p id="lowercase" class="invalid">A <b>lowercase</b> letter.</p>
+            <p id="uppercase" class="invalid">An UPPERCASE letter.</p>
+            <p id="digit" class="invalid">A number (0-9).</p>
+            <p id="passwordlength" class="invalid">At least 8 characters.</p>
+        </div>
     </div>
 </body>
 </html>
