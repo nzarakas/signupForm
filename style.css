@@ -11,8 +11,10 @@
     font-family: roboto-regular;
     src: url(fonts/Roboto_SemiCondensed-Regular.ttf) format('truetype');  
 }
-html {
+:root {
     font-family: JMH-Typewriter-Thin;
+    --color-valid: rgb(92, 241, 159);
+    --color-invalid: rgb(236, 69, 69);
 }
 
 * {
@@ -81,14 +83,32 @@ input {
 }
 input:focus,
 input:valid,
-input:active {
-    border: 2px solid rgb(92, 241, 159);
-    color: rgb(92, 241, 159);
+input:active{
+    border: 2px solid var(--color-valid);
+    /* color: rgb(92, 241, 159); */
+    color:white;
 }
-    
+
 input::placeholder{
     font-size: 0;
 }
+
+input:not(:focus):not(:placeholder-shown):valid {
+    border: 2px solid var(--color-valid); 
+}
+input:not(:focus):not(:placeholder-shown):invalid {
+    border: 2px solid var(--color-invalid); 
+}
+input:focus:not(:placeholder-shown):invalid {
+    border: 2px solid var(--color-invalid); 
+}    
+input:not(:focus):not(:placeholder-shown):invalid + label {
+    color: var(--color-invalid);
+}
+input:focus:not(:placeholder-shown):invalid + label {
+    color: var(--color-invalid);
+}
+
 label {
     color: white;
     position: absolute;
@@ -103,7 +123,7 @@ input:focus + label,
 input:not(:placeholder-shown) + label {
     
     transform: translateY(-160%) scale(1.2);
-    color: rgb(92, 241, 159);  
+    color: var(--color-valid);  
 }
 
 form {
@@ -152,5 +172,34 @@ fieldset {
     position: relative;
     left: -17rem;
     bottom: 6.4rem;
-
 }
+
+.valid::before {
+    color: var(--color-valid);
+    position: relative;
+    content: "✔";
+}
+.invalid::before {
+    color: var(--color-invalid);
+    position: relative;
+    content: "✖";
+}
+
+#signIn {
+    position: absolute;
+    bottom: 4rem;
+    
+    color: white;
+    font-family: roboto-regular;
+}
+a {
+    color: rgb(231, 125, 3);
+}
+
+#passwordMatch {
+    display: none;
+    position: absolute;
+    padding-left: 1rem;
+    color: white;
+}
+

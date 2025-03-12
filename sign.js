@@ -1,15 +1,18 @@
 const validation = document.querySelector("#passwordValidation");
 const password = document.querySelector("#password");
-
+const confirmPassword = document.querySelector("#confirmPassword");
+const passwordMatch = document.getElementById("passwordMatch");
 
 password.addEventListener("focus", () => {
     validation.style.display = "block";
 });
 
+//blur is out of focus
 password.addEventListener("blur", ()=>{
     validation.style.display = "none";
 });
 
+//performs checks on the password a user is inputing on every key press
 password.addEventListener("keyup", ()=>{
     const lowercaseLetters = /[a-z]/g;
     const uppercaseLetters = /[A-Z]/g;
@@ -45,5 +48,34 @@ password.addEventListener("keyup", ()=>{
         document.getElementById("digit").classList.add("invalid");
     }
     
+    //validates password only when the length is at least 8 characters
+    if(password.value.length>=8){
+        document.getElementById("passwordlength").classList.remove("invalid");
+        document.getElementById("passwordlength").classList.add("valid");
+    }
+    else{
+        document.getElementById("passwordlength").classList.remove("valid");
+        document.getElementById("passwordlength").classList.add("invalid");
+    }
+
+    password.addEventListener('input', validatePassword);
 });
 
+function validatePassword() {
+    passwordMatch.style.display = 'block';
+
+    
+        if(password.value !==confirmPassword.value){
+            confirmPassword.setCustomValidity("Passwords don't match");
+            
+            passwordMatch.textContent = "Passwords don't match";
+    
+        }
+        else{
+            confirmPassword.setCustomValidity('');   
+            passwordMatch.textContent = "Passwords don't match";
+        }  
+}
+
+
+confirmPassword.addEventListener('input', validatePassword);

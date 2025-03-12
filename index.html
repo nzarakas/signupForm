@@ -21,39 +21,46 @@
         <form method="post">
             <fieldset class="names">
                 <div>                   
-                    <input id="firstName" type="text" name="firstName" placeholder="First Name" autocomplete="off" required>
+                    <input id="firstName" type="text" name="firstName" placeholder="First Name" 
+                           autocomplete="off" maxlength="32" required>
                     <label for="firstName"> Name </label>    
                 </div>
     
                 <div>                          
-                    <input id="lastName" type="text" name="lastName" placeholder="Last Name" autocomplete="off" required>  
+                    <input id="lastName" type="text" name="lastName" placeholder="Last Name" 
+                           autocomplete="off" maxlength="32" required>  
                     <label for="lastName">Last Name </label>  
                 </div>
             </fieldset>
 
             <fieldset class="contacts">
                 <div>                    
-                    <input id="email" type="email" name="email" placeholder="Email" autocomplete="off" required>    
+                    <input id="email" type="email" name="email" placeholder="Email" 
+                           autocomplete="off" maxlength="32" required>    
                     <label for="email">Email</label>
                 </div>
                
                 <div>                   
-                    <input id="phoneNum" type="tel" name="phoneNum" placeholder="Phone Number" autocomplete="off" required> 
+                    <input id="phoneNum" type="tel" name="phoneNum" placeholder="Phone Number" 
+                           autocomplete="off" maxlength="32" required> 
                     <label for="phoneNum">Phone Number </label>  
                 </div>
             </fieldset>
 
             <fieldset class="password">
                 <div>  
-                    <input id="password" type="password" name="password" 
-                           placeholder="Choose a Password" autocomplete="off"
+                    <input id="password" type="password" name="password" placeholder="Choose a Password"
+                           autocomplete="off" maxlength="32"
                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
                     <label for="password">Choose a Password </label>  
                 </div>
                 
                 <div>                    
-                    <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" autocomplete="off" required> 
-                    <label for="confirmPassword">Confirm Password </label>  
+                    <input id="confirmPassword" type="password" name="confirmPassword" 
+                           class="invalid" placeholder="Confirm Password" 
+                           autocomplete="off" maxlength="32" required> 
+                    <label for="confirmPassword">Confirm Password </label> 
+                    <p id="passwordMatch"></p> 
                 </div>
             </fieldset> 
             
@@ -69,6 +76,7 @@
             <p id="digit" class="invalid">A number (0-9).</p>
             <p id="passwordlength" class="invalid">At least 8 characters.</p>
         </div>
+        <div id="signIn">Already have an account? <a href="">Sign in.</a></div>
     </div>
 </body>
 </html>
