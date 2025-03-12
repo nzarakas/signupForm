@@ -186,8 +186,8 @@ fieldset {
 }
 /* Already Have an account? */
 #signIn {
-    position: relative;
-    
+    position: absolute;
+    bottom: 5rem;
     
     color: white;
     font-family: roboto-regular, roboto-extraLight, monospace;
