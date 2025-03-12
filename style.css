@@ -39,7 +39,7 @@ body {
 .container {
     position: relative;
     height: 100vh;
-    width: 50vw;
+    width: clamp(50rem, 50vw, 200rem);
     margin-left: auto;
     
     overflow: auto;
@@ -78,21 +78,22 @@ input {
     background-color: transparent;
     transition: all 0.2s ease;
     font-size: 1.2rem;
-    font-family: roboto-regular;
-    
+    font-family: roboto-regular;   
 }
+
+/* makes the border of a field green when user is using it*/
 input:focus,
 input:valid,
 input:active{
     border: 2px solid var(--color-valid);
-    /* color: rgb(92, 241, 159); */
     color:white;
 }
 
+/* makes the placeholder text disappear */
 input::placeholder{
     font-size: 0;
 }
-
+/* Border & Label turn green when valid (in focus or out of focus) and red when invalid*/
 input:not(:focus):not(:placeholder-shown):valid {
     border: 2px solid var(--color-valid); 
 }
@@ -101,7 +102,7 @@ input:not(:focus):not(:placeholder-shown):invalid {
 }
 input:focus:not(:placeholder-shown):invalid {
     border: 2px solid var(--color-invalid); 
-}    
+} 
 input:not(:focus):not(:placeholder-shown):invalid + label {
     color: var(--color-invalid);
 }
@@ -118,7 +119,7 @@ label {
     transition: all 0.2s ease;
     background-color: transparent;    
 }
-
+/* Field text (e.g Phone Number) moves above the field when user clicks on it and  */
 input:focus + label,
 input:not(:placeholder-shown) + label {
     
@@ -147,11 +148,10 @@ fieldset {
     width: 13rem;
     height: 3rem;
     margin-right: 3rem;
-    /* background-color: rgb(235, 152, 88); */
     background-color: rgb(231, 125, 3);
     outline: 0;
     color: white;
-    font-family: roboto-regular;
+    font-family: roboto-regular, roboto-extraLight, monospace;
     font-size: 1.3rem; 
     font-weight: 400;
     line-height: 0.8; 
@@ -168,12 +168,12 @@ fieldset {
     display: none;
     color: white;
     font-size: 1rem;
-    font-family: roboto-regular;
+    font-family: roboto-regular,roboto-extraLight, monospace;
     position: relative;
     left: -17rem;
     bottom: 6.4rem;
 }
-
+/* Used in Password validation block and Confirm Password validation (last two form fields) */
 .valid::before {
     color: var(--color-valid);
     position: relative;
@@ -184,22 +184,25 @@ fieldset {
     position: relative;
     content: "✖";
 }
-
+/* Already Have an account? */
 #signIn {
-    position: absolute;
-    bottom: 4rem;
+    position: relative;
+    
     
     color: white;
-    font-family: roboto-regular;
+    font-family: roboto-regular, roboto-extraLight, monospace;
 }
+/* Sign in. */
 a {
     color: rgb(231, 125, 3);
 }
 
+/* text below Confirm Password field that says if password and cnfrm Passwords match */
 #passwordMatch {
     display: none;
     position: absolute;
     padding-left: 1rem;
     color: white;
+    font-family: roboto-regular, roboto-extraLight, monospace;
 }
 

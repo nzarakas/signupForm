@@ -42,7 +42,9 @@
                
                 <div>                   
                     <input id="phoneNum" type="tel" name="phoneNum" placeholder="Phone Number" 
-                           autocomplete="off" maxlength="32" required> 
+                           autocomplete="off" maxlength="32" minlength="10"
+                           pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
+                           required> 
                     <label for="phoneNum">Phone Number </label>  
                 </div>
             </fieldset>
@@ -57,10 +59,10 @@
                 
                 <div>                    
                     <input id="confirmPassword" type="password" name="confirmPassword" 
-                           class="invalid" placeholder="Confirm Password" 
+                        placeholder="Confirm Password" 
                            autocomplete="off" maxlength="32" required> 
                     <label for="confirmPassword">Confirm Password </label> 
-                    <p id="passwordMatch"></p> 
+                    <p id="passwordMatch" class="invalid"></p> 
                 </div>
             </fieldset> 
             

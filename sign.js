@@ -58,24 +58,26 @@ password.addEventListener("keyup", ()=>{
         document.getElementById("passwordlength").classList.add("invalid");
     }
 
-    password.addEventListener('input', validatePassword);
+   
 });
-
+//Confirm Password field needs to have the same input as password to be valid.
 function validatePassword() {
-    passwordMatch.style.display = 'block';
 
-    
+    passwordMatch.style.display = 'block';
+   
         if(password.value !==confirmPassword.value){
-            confirmPassword.setCustomValidity("Passwords don't match");
-            
-            passwordMatch.textContent = "Passwords don't match";
+            confirmPassword.setCustomValidity("Passwords don't match");       
+            passwordMatch.textContent = "Passwords don't match.";
+            passwordMatch.classList.remove("valid");
+            passwordMatch.classList.add("invalid");
     
         }
         else{
             confirmPassword.setCustomValidity('');   
-            passwordMatch.textContent = "Passwords don't match";
-        }  
+            passwordMatch.textContent = "Passwords match!";
+            passwordMatch.classList.remove("invalid");
+            passwordMatch.classList.add("valid");
+        }         
 }
-
 
 confirmPassword.addEventListener('input', validatePassword);
